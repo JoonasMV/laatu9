@@ -12,7 +12,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class HinnoittelijaTest {
 
-    TilaustenKäsittely kasittely = new TilaustenKäsittely();
+    TilaustenKasittely kasittely = new TilaustenKasittely();
     Asiakas asiakas = new Asiakas(100);
     Tuote tuote = new Tuote("tuoli", 50);
     Tilaus tilaus = new Tilaus(asiakas, tuote);
@@ -25,7 +25,7 @@ public class HinnoittelijaTest {
         Mockito.when(hinnoittelija.getAlennusProsentti(asiakas, tuote)).thenReturn(10F);
 
         kasittely.setHinnoittelija(hinnoittelija);
-        kasittely.käsittele(tilaus);
+        kasittely.kasittele(tilaus);
         assertEquals(515, asiakas.getSaldo());
     }
 }
